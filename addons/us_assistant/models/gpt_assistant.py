@@ -1,10 +1,10 @@
 import base64
-from openai import OpenAI
 
 from odoo import api, models, fields
-from odoo.modules.module import get_module_resource
-from odoo.tools.misc import file_path
 from odoo.exceptions import UserError
+from odoo.tools.misc import file_path
+
+from ..tools.openai import get_openai_client
 
 
 class GptAssistant(models.Model):
@@ -28,25 +28,29 @@ class GptAssistant(models.Model):
         default_image_path = file_path('us_assistant/static/description/icon.png')
         for record in records:
             if not record.partner_id:
-                partner = self.env['res.partner'].create({"name": record.name,
-                                                          "is_assistant": True,
-                                                          "image_1920": base64.b64encode(
-                                                              open(default_image_path, 'rb').read()),
-                                                          "assistant_id": record.id,
-                                                          })
+                with open(default_image_path, 'rb') as default_image:
+                    image = base64.b64encode(default_image.read())
+                partner = self.env['res.partner'].create(
+                    {
+                        "name": record.name,
+                        "is_assistant": True,
+                        "image_1920": image,
+                        "assistant_id": record.id,
+                    }
+                )
                 record.write({'partner_id': partner.id})
         return records
 
     def write(self, vals):
-        super().write(vals)
+        res = super().write(vals)
         if "name" in vals:
             self.partner_id.name = vals["name"]
-        if "assistant_id" or "token_api" in vals:
+        if "assistant_id" in vals or "token_api" in vals:
             self.partner_id.write({"assistant_id": self.id})
         if "vector_store_id" in vals:
             try:
                 vector_store = self.env["vector.store"].browse(vals["vector_store_id"]).mapped("store_id")
-                client = OpenAI(api_key=self.token_api)
+                client = get_openai_client(self.token_api)
 
                 client.beta.assistants.update(
                     assistant_id=self.assistant_id,
@@ -54,9 +58,9 @@ class GptAssistant(models.Model):
                 )
             except Exception as e:
                 raise UserError(e)
+        return res
 
     def unlink(self):
         for record in self:
             record.partner_id.action_archive()
-        res = super().unlink()
-        return res
+        return super().unlink()

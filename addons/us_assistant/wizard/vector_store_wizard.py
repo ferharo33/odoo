@@ -1,6 +1,7 @@
 from odoo import models, fields, api, _
-from openai import OpenAI
 from odoo.exceptions import UserError, ValidationError
+
+from ..tools.openai import get_openai_client
 
 
 class VectorStoreWizard(models.TransientModel):
@@ -12,7 +13,7 @@ class VectorStoreWizard(models.TransientModel):
 
     def action_confirm(self):
         try:
-            client = OpenAI(api_key=self.api_key)
+            client = get_openai_client(self.api_key)
 
             vector_store_name = client.beta.vector_stores.retrieve(vector_store_id=self.vector_store_id).name
 

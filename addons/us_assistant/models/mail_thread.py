@@ -1,6 +1,7 @@
-from openai import OpenAI
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
+
+from ..tools.openai import get_openai_client
 
 
 class MailThread(models.AbstractModel):
@@ -13,7 +14,7 @@ class MailThread(models.AbstractModel):
         if not api_key or not assistant_id:
             raise UserError(_("The API Key or Assistant ID is missing for the selected partner."))
 
-        client = OpenAI(api_key=api_key)
+        client = get_openai_client(api_key)
         try:
             if not self.global_thread_id:
                 self.global_thread_id = client.beta.threads.create().id
