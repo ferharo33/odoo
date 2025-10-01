@@ -17,7 +17,7 @@ threadActionsRegistry
         icon: "fa fa-fw fa-lightbulb-o",
         iconLarge: "fa fa-fw fa-lg fa-lightbulb-o",
         name: _t("Assistant"),
-        nameActive: _t("Asssistant"),
+        nameActive: _t("Assistant"),
         sequence: 1,
         toggle: true,
     });

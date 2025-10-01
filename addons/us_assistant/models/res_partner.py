@@ -1,4 +1,4 @@
-from odoo import api, models, fields
+from odoo import models, fields
 from odoo.exceptions import ValidationError
 from odoo.tools.translate import _
 
@@ -9,17 +9,10 @@ class ResPartner(models.Model):
     is_assistant = fields.Boolean(string='Assistant indicator', default=False)
     assistant_id = fields.Many2one("gpt.assistant", string='Assistant')
 
-    def mail_partner_format(self, fields=None):
-        partners_format = super().mail_partner_format(fields=fields)
-
-        if not fields:
-            fields = {'is_assistant': True}
+    def _to_store(self, store, /, *, fields=None, main_user_by_partner=None):
+        super()._to_store(store, fields=fields, main_user_by_partner=main_user_by_partner)
         for partner in self:
-            if 'is_assistant' in fields:
-                partners_format.get(partner).update({
-                    'is_assistant': partner.is_assistant
-                })
-        return partners_format
+            store.add(partner, {"is_assistant": partner.is_assistant})
 
     def unlink(self):
         for record in self:

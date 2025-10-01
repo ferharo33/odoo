@@ -8,11 +8,11 @@ import { Record } from "@mail/core/common/record";
 
 patch(Thread.prototype, {
     setup() {
-         super.setup();
-         this.assistantMembers = Record.many("ChannelMember", {
+        super.setup(...arguments);
+        this.assistantMembers = Record.many("ChannelMember", {
             compute() {
-                return this.channelMembers.filter((m) => m?.persona?.is_assistant === true);
-            }
+                return this.channelMembers.filter((member) => member?.persona?.is_assistant === true);
+            },
         });
     },
     update(data) {
@@ -20,6 +20,8 @@ patch(Thread.prototype, {
         assignDefined(this, data, ["assistant_toggle_status"]);
     },
     get correspondents() {
-        return super.correspondents.filter((correspondent) => !correspondent.is_assistant);
+        return super.correspondents.filter(
+            (correspondent) => !correspondent.persona?.is_assistant
+        );
     },
 });

@@ -3,7 +3,7 @@
     "summary": """Assistant ChatGPT integration powered by UnitSoft""",
     "category": "Discuss",
     "images": ["static/description/banner.png"],
-    "version": "17.0.2.1.0",
+    "version": "18.0.1.0.0",
     "author": "UnitSoft",
     "support": "",
     "website": "https://unitsoft.com.ua/",
@@ -11,7 +11,7 @@
     "price": 50,
     "currency": "EUR",
     "depends": ["base_automation", "base", "crm", "im_livechat"],
-    "external_dependencies": {"python": ["openai"] ,"bin": []},
+    "external_dependencies": {"python": ["openai"], "bin": []},
     "data": [
         "security/us_assistant_groups.xml",
         "security/ir.model.access.csv",

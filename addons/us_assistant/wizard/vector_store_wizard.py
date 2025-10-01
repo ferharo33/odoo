@@ -35,7 +35,7 @@ class VectorStoreWizard(models.TransientModel):
             'tag': 'display_notification',
             'params': {
                 'type': 'success',
-                'message': _('File uploaded successfully'),
+                'message': _('Vector store linked successfully'),
                 'next': {'type': 'ir.actions.act_window_close'},
             }
         }

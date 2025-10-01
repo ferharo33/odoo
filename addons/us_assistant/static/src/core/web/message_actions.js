@@ -2,7 +2,6 @@
 
 import { messageActionsRegistry } from "@mail/core/common/message_actions";
 import { _t } from "@web/core/l10n/translation";
-import { useComponent, useState } from "@odoo/owl";
 
 messageActionsRegistry
     .add("assistant-hint", {
