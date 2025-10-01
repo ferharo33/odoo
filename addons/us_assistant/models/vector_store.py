@@ -1,15 +1,10 @@
-from openai import OpenAI, BadRequestError
+import base64
 from io import BytesIO
-import logging
 
 from odoo import api, models, fields, _
 from odoo.exceptions import UserError, ValidationError
 
-_logger = logging.getLogger(__name__)
-try:
-    import base64
-except ImportError:
-    _logger.debug('Cannot `import base64`.')
+from ..tools.openai import get_openai_client, get_openai_module
 
 
 class VectorStore(models.Model):
@@ -33,7 +28,7 @@ class VectorStore(models.Model):
         try:
             for vals in vals_list:
                 if vals.get('is_vector_store_odoo'):
-                    client = OpenAI(api_key=vals.get('store_key'))
+                    client = get_openai_client(vals.get('store_key'))
                     vector_store = client.beta.vector_stores.create(name=vals.get('name'))
                     vals["store_id"] = vector_store.id
         except Exception as e:
@@ -52,13 +47,14 @@ class VectorStore(models.Model):
             file_stream.name = attachment.name
             file_streams.append(file_stream)
 
-        client = OpenAI(api_key=self.store_key)
+        openai_module = get_openai_module()
+        client = openai_module.OpenAI(api_key=self.store_key)
         try:
             client.beta.vector_stores.file_batches.upload_and_poll(
                 vector_store_id=self.store_id, files=file_streams
             )
-        except BadRequestError as e:
-            raise UserError(e.message)
+        except openai_module.BadRequestError as e:
+            raise UserError(getattr(e, "message", str(e)))
 
         vector_store_files = client.beta.vector_stores.files.list(vector_store_id=self.store_id).data
 
