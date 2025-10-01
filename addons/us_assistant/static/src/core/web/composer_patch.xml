@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
-    <t t-inherit="mail.Composer" t-inherit-mode="extension">
-        <xpath expr="//div[hasclass('o-mail-Composer-actions')]/*[1]" position="replace">
+    <t t-inherit="mail.Composer.actions" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o-mail-Composer-mainActions')]" position="replace">
             <t t-if="props.composer.isAssistantEditing">
-                 <div class="d-flex flex-grow-1 align-items-center" t-ref="main-actions">
-                     <button class="btn border-0 rounded-pill" t-att-class="{'bg-300': this.picker.state.picker === this.picker.PICKERS.EMOJI}" aria-label="Emojis" t-on-click="onClickAddEmoji" t-ref="emoji-button"><i class="fa fa-smile-o"/></button>
-                     <t t-if="extended and ui.isSmall and props.composer.message" t-call="mail.Composer.sendButton"/>
-                 </div>
-            </t>
-            <t t-else="">
-                <div class="d-flex flex-grow-1 align-items-center" t-ref="main-actions">
-                    <button class="btn border-0 rounded-pill" t-att-class="{'bg-300': this.picker.state.picker === this.picker.PICKERS.EMOJI}" aria-label="Emojis" t-on-click="onClickAddEmoji" t-ref="emoji-button"><i class="fa fa-smile-o"/></button>
-                    <FileUploader t-if="allowUpload" multiUpload="true" onUploaded="(data) => { attachmentUploader.uploadData(data) }">
-                        <t t-set-slot="toggler">
-                            <button t-att-disabled="!state.active" class="o-mail-Composer-attachFiles btn border-0 rounded-pill" title="Attach files" aria-label="Attach files" type="button" t-on-click="onClickAddAttachment"><i class="fa fa-paperclip"/></button>
-                        </t>
-                    </FileUploader>
+                <div class="o-mail-Composer-mainActions d-flex flex-grow-1 align-items-center gap-1" t-ref="main-actions">
+                    <t t-call="mail.Composer.emojiPicker"/>
                     <t t-if="extended and ui.isSmall and props.composer.message" t-call="mail.Composer.sendButton"/>
                 </div>
-            </t>
-        </xpath>
-        <xpath expr="//div[hasclass('o-mail-Composer-actions')]/*[1]" position="after">
-            <t t-if="props.composer.isAssistantEditing">
                 <button t-if="!ui.isSmall" class="o-mail-Composer-send btn o-last"
                     t-att-class="{'rounded-0 rounded-end-3': !extended and !compact, 'btn-link align-self-stretch': !extended, 'border-start-0 ms-2 me-3': env.inDiscussApp}"
                     t-on-click="rpcAssistantHint"
@@ -30,6 +15,64 @@
                     <t t-if="thread and thread.type === 'chatter'" t-out="HINT_TEXT"/>
                     <t t-else="">Hint</t>
                 </button>
+            </t>
+            <t t-else="">
+                <div class="o-mail-Composer-mainActions d-flex flex-grow-1 align-items-baseline gap-1" t-att-class="{ 'mt-2': !props.composer.message and !env.inChatWindow, 'mt-1': env.inChatWindow }" t-ref="main-actions">
+                    <t t-call="mail.Composer.emojiPicker"/>
+                    <t t-call="mail.Composer.attachFiles"/>
+                    <t t-if="ui.isSmall and props.composer.message" t-call="mail.Composer.sendButton"/>
+                    <t t-if="!extended" t-call="mail.Composer.fullComposer"/>
+                    <t t-if="hasSendButtonNonEditing" t-call="mail.Composer.sendButton"/>
+                </div>
+            </t>
+        </xpath>
+    </t>
+    <t t-inherit="mail.Composer.quickActions" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o-mail-Composer-mainActions')]" position="replace">
+            <t t-if="props.composer.isAssistantEditing">
+                <div class="o-mail-Composer-mainActions d-flex flex-grow-1 align-items-center mt-2" t-ref="main-actions">
+                    <t t-call="mail.Composer.emojiPicker"/>
+                    <t t-if="extended and ui.isSmall and props.composer.message" t-call="mail.Composer.sendButton"/>
+                </div>
+                <button t-if="!ui.isSmall" class="o-mail-Composer-send btn o-last"
+                    t-att-class="{'rounded-0 rounded-end-3': !extended and !compact, 'btn-link align-self-stretch': !extended, 'border-start-0 ms-2 me-3': env.inDiscussApp}"
+                    t-on-click="rpcAssistantHint"
+                    t-att-aria-label="HINT_TEXT"
+                >
+                    <t t-if="thread and thread.type === 'chatter'" t-out="HINT_TEXT"/>
+                    <t t-else="">Hint</t>
+                </button>
+            </t>
+            <t t-else="">
+                <div class="o-mail-Composer-mainActions d-flex flex-grow-1 align-items-baseline mt-2" t-ref="main-actions">
+                    <t t-call="mail.Composer.emojiPicker"/>
+                </div>
+            </t>
+        </xpath>
+    </t>
+    <t t-inherit="mail.Composer.extraActions" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o-mail-Composer-mainActions')]" position="replace">
+            <t t-if="props.composer.isAssistantEditing">
+                <div class="o-mail-Composer-mainActions d-flex flex-grow-1 align-items-center" t-ref="main-actions">
+                    <t t-call="mail.Composer.emojiPicker"/>
+                    <t t-if="extended and ui.isSmall and props.composer.message" t-call="mail.Composer.sendButton"/>
+                </div>
+                <button t-if="!ui.isSmall" class="o-mail-Composer-send btn o-last"
+                    t-att-class="{'rounded-0 rounded-end-3': !extended and !compact, 'btn-link align-self-stretch': !extended, 'border-start-0 ms-2 me-3': env.inDiscussApp}"
+                    t-on-click="rpcAssistantHint"
+                    t-att-aria-label="HINT_TEXT"
+                >
+                    <t t-if="thread and thread.type === 'chatter'" t-out="HINT_TEXT"/>
+                    <t t-else="">Hint</t>
+                </button>
+            </t>
+            <t t-else="">
+                <div class="o-mail-Composer-mainActions d-flex flex-grow-1 align-items-baseline" t-ref="main-actions">
+                    <t t-call="mail.Composer.attachFiles"/>
+                    <t t-if="ui.isSmall and props.composer.message" t-call="mail.Composer.sendButton"/>
+                    <t t-if="!extended" t-call="mail.Composer.fullComposer"/>
+                    <t t-if="hasSendButtonNonEditing" t-call="mail.Composer.sendButton"/>
+                </div>
             </t>
         </xpath>
     </t>
