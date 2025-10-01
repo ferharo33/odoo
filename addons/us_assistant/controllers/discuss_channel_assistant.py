@@ -1,5 +1,3 @@
-import time
-
 from odoo import http, _
 from odoo.http import request
 from werkzeug.exceptions import NotFound

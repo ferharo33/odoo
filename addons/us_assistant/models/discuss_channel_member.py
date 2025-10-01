@@ -4,8 +4,14 @@ from odoo import models
 class ChannelMember(models.Model):
     _inherit = 'discuss.channel.member'
 
-    def _get_partner_data(self, fields=None):
-        data = super()._get_partner_data(fields=fields)
-        if self.channel_id.channel_type == 'livechat':
-            data['is_assistant'] = self.partner_id.is_assistant
-        return data
+    def _get_store_partner_fields(self, fields):
+        fields = super()._get_store_partner_fields(fields)
+        if fields is None:
+            return fields
+        if isinstance(fields, list):
+            return fields if "is_assistant" in fields else [*fields, "is_assistant"]
+        if isinstance(fields, dict):
+            fields = fields.copy()
+            fields.setdefault("is_assistant", True)
+            return fields
+        return fields

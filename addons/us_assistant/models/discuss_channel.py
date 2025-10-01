@@ -14,19 +14,21 @@ class Channel(models.Model):
             res = channel.channel_member_ids.filtered(lambda channel_member: channel_member.partner_id.is_assistant == True)
             channel.is_assistant_active = True if len(res) > 0 else False
 
-    def _channel_info(self):
-        channel_infos = super()._channel_info()
-        channel_infos_dict = dict((c['id'], c) for c in channel_infos)
-        for channel in self:
-            channel_sudo = channel.sudo()
-            if channel_sudo.channel_type == "livechat" and channel_sudo.livechat_channel_id and channel_sudo.livechat_channel_id.is_only_hint_available == True:
-                channel_sudo.assistant_toggle_status = False
-                assistant_chatbot = self.env.ref("us_assistant.chatbot_script_assistant_bot")
-                member_partner_ids = list(map(lambda x: x.partner_id.id, channel_sudo.channel_member_ids))
-                if assistant_chatbot and assistant_chatbot.sudo().operator_partner_id.id in member_partner_ids:
-                    channel_sudo.assistant_toggle_status = True
-            channel_infos_dict[channel_sudo.id]['assistant_toggle_status'] = channel_sudo.assistant_toggle_status
-        return list(channel_infos_dict.values())
+    def _channel_basic_info(self):
+        info = super()._channel_basic_info()
+        channel_sudo = self.sudo()
+        if (
+            channel_sudo.channel_type == "livechat"
+            and channel_sudo.livechat_channel_id
+            and channel_sudo.livechat_channel_id.is_only_hint_available
+        ):
+            channel_sudo.assistant_toggle_status = False
+            assistant_chatbot = self.env.ref("us_assistant.chatbot_script_assistant_bot", raise_if_not_found=False)
+            member_partner_ids = channel_sudo.channel_member_ids.mapped("partner_id.id")
+            if assistant_chatbot and assistant_chatbot.sudo().operator_partner_id.id in member_partner_ids:
+                channel_sudo.assistant_toggle_status = True
+        info["assistant_toggle_status"] = channel_sudo.assistant_toggle_status
+        return info
 
     def send_message_from_assistant(self, message_text, author_id=None):
         guest = self.env['mail.guest']._get_guest_from_context()

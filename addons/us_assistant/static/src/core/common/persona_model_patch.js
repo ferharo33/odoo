@@ -5,8 +5,5 @@ import { Record } from "@mail/core/common/record";
 import { patch } from "@web/core/utils/patch";
 
 patch(Persona.prototype, {
-    setup() {
-        super.setup();
-        this.is_assistant = false;
-    }
+    is_assistant: Record.attr(false),
 });

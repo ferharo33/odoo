@@ -2,19 +2,20 @@
 
 import { Message } from "@mail/core/common/message";
 
-import { useState } from "@odoo/owl";
 import { patch } from "@web/core/utils/patch";
-import { convertBrToLineBreak, htmlToTextContentInline } from "@mail/utils/common/format";
+import { convertBrToLineBreak } from "@mail/utils/common/format";
+import { toRaw } from "@odoo/owl";
 
 patch(Message.prototype, {
     onClickAssistantEdit() {
-        return this.enterAssisstantEditMode();
+        return this.enterAssistantEditMode();
     },
-    enterAssisstantEditMode() {
-        const messageContent = convertBrToLineBreak(this.props.message.body);
-        this.props.message.composer = {
-            mentionedPartners: this.props.message.recipients,
-            textInputContent: messageContent,
+    enterAssistantEditMode() {
+        const message = toRaw(this.props.message);
+        const messageContent = convertBrToLineBreak(message.body);
+        message.composer = {
+            mentionedPartners: message.recipients,
+            text: messageContent,
             isAssistantEditing: true,
             selection: {
                 start: messageContent.length,
@@ -25,6 +26,8 @@ patch(Message.prototype, {
         this.state.isEditing = true;
     },
     get canAssistantHint() {
-        return Boolean(!this.message.is_transient && this.message.res_id && this.message.type === "comment");
+        return Boolean(
+            !this.message.is_transient && this.message.res_id && this.message.type === "comment"
+        );
     }
 });
