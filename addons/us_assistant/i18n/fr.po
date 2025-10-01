@@ -1,0 +1,566 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* us_assistant
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-05 13:03+0000\n"
+"PO-Revision-Date: 2024-08-05 13:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: us_assistant
+#. odoo-javascript
+#: code:addons/us_assistant/static/src/components/composer/composer.xml:0
+#, python-format
+msgid ", enter to"
+msgstr ""
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Error Message"
+msgstr "Message d'erreur"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Existing Vector Stores"
+msgstr "Magasins de vecteurs existants"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Manage Assistants"
+msgstr "Gérer les assistants"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Manage Vector Stores"
+msgstr "Gérer les magasins de vecteurs"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "New Assistant"
+msgstr "Nouvel assistant"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.assistant_im_livechat_channel_view_kanban
+msgid ""
+"<i class=\"fa fa-user\" role=\"img\" aria-label=\"Assistant\" "
+"title=\"Assistant\"> </i>"
+msgstr ""
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__store_key
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store_wizard__api_key
+msgid "API Key"
+msgstr "clé API"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Add Assistant"
+msgstr "Ajouter un assistant"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_chatbot_script_step__forward_operator_with_assistant
+msgid "Add Assistant ChatGPT"
+msgstr "Ajouter un assistant ChatGPT"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Add Stores from Dashboard"
+msgstr "Ajouter des magasins à partir du tableau de bord"
+
+#. module: us_assistant
+#. odoo-javascript
+#: code:addons/us_assistant/static/src/components/composer/composer.xml:0
+#: code:addons/us_assistant/static/src/components/composer/composer.xml:0
+#, python-format
+msgid "Add attachment"
+msgstr "Ajouter une pièce jointe"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Add your Vector Stories that already exist in the Dashboard."
+msgstr "Ajoutez vos histoires vectorielles qui existent déjà dans le tableau de bord."
+
+#. module: us_assistant
+#: model:ir.actions.server,name:us_assistant.assistant_rule_on_create_ir_actions_server
+#: model:ir.model.fields,field_description:us_assistant.field_im_livechat_channel__assistant_id
+#: model:ir.model.fields,field_description:us_assistant.field_res_partner__assistant_id
+#: model:ir.model.fields,field_description:us_assistant.field_res_users__assistant_id
+#: model_terms:ir.ui.view,arch_db:us_assistant.assistant_im_livechat_channel_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:us_assistant.assistant_im_livechat_channel_view_kanban
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Assistant"
+msgstr "Assistant"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant__assistant_id
+msgid "Assistant Id"
+msgstr "ID d'assistant"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant__name
+msgid "Assistant Name"
+msgstr "Nom de l'assistant"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_calendar_event__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_crm_lead__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_crm_team__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_crm_team_member__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_mail_blacklist__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_mail_channel__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_mail_thread__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_mail_thread_blacklist__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_mail_thread_cc__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_mail_thread_phone__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_phone_blacklist__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_res_partner__global_thread_id
+#: model:ir.model.fields,field_description:us_assistant.field_res_users__global_thread_id
+msgid "Assistant Tread ID"
+msgstr ""
+
+#. module: us_assistant
+#. odoo-javascript
+#: code:addons/us_assistant/static/src/models/message_action_view.js:0
+#, python-format
+msgid "Assistant Hint"
+msgstr "Conseil de l'assistant"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_res_partner__is_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_res_users__is_assistant
+msgid "Assistant indicator"
+msgstr ""
+
+#. module: us_assistant
+#: model:ir.actions.act_window,name:us_assistant.gpt_assistant_action
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Assistants"
+msgstr "Assistants"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__is_attach_change
+msgid "Attachment Change"
+msgstr ""
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.view_vector_store_wizard_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: us_assistant
+#: model:ir.model,name:us_assistant.model_chatbot_script_step
+msgid "Chatbot Script Step"
+msgstr "Étape de script du chatbot"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.view_vector_store_wizard_form
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: us_assistant
+#: model:ir.model,name:us_assistant.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Create, view and manage Vector Stores."
+msgstr "Créez, affichez et gérez les magasins de vecteurs."
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant__create_uid
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__create_uid
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant__create_date
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__create_date
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: us_assistant
+#. odoo-javascript
+#: code:addons/us_assistant/static/src/components/thread_view_topbar/thread_view_topbar.xml:0
+#, python-format
+msgid "Disable/Enable assistant response"
+msgstr "Désactiver/Activer la réponse de l'assistant"
+
+#. module: us_assistant
+#: model:ir.model,name:us_assistant.model_mail_channel
+msgid "Discussion Channel"
+msgstr "Canal de discussion"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant__display_name
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__display_name
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Documentation"
+msgstr "Documentation"
+
+#. module: us_assistant
+#: model:ir.model,name:us_assistant.model_mail_thread
+msgid "Email Thread"
+msgstr "Discussion par email"
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/models/vector_store.py:0
+#: code:addons/us_assistant/wizard/vector_store_wizard.py:0
+#, python-format
+msgid "File uploaded successfully"
+msgstr "Fichier téléchargé avec succès"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__attachment_ids
+msgid "Files"
+msgstr "Des dossiers"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_mail_channel__assistant_toggle_status
+msgid "Force assistant to keep quite"
+msgstr "Forcer l'assistant à garder le silence"
+
+#. module: us_assistant
+#: model:ir.model,name:us_assistant.model_gpt_assistant
+msgid "GPT Assistant"
+msgstr "GPT Assistant"
+
+#. module: us_assistant
+#. odoo-javascript
+#: code:addons/us_assistant/static/src/components/composer/composer.xml:0
+#, python-format
+msgid "Hint"
+msgstr "Indice"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant__id
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__id
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant____last_update
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store____last_update
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant__write_uid
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__write_uid
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant__write_date
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__write_date
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: us_assistant
+#: model:ir.model,name:us_assistant.model_mail_channel_member
+msgid "Listeners of a Channel"
+msgstr "Audience d'un canal"
+
+#. module: us_assistant
+#: model:ir.model,name:us_assistant.model_im_livechat_channel
+msgid "Livechat Channel"
+msgstr "Canal de Live Chat"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Manage"
+msgstr "Gérer"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Manage Stores"
+msgstr "Gérer les magasins"
+
+#. module: us_assistant
+#: model:ir.actions.act_window,name:us_assistant.action_open_gpt_assistant_form
+msgid "New Assistant"
+msgstr "Nouvel assistant"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/models/vector_store.py:0
+#, python-format
+msgid "Please Upload File!"
+msgstr "Veuillez télécharger le fichier !"
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/models/mail_thread.py:0
+#, python-format
+msgid "The API Key or Assistant ID is missing for the selected partner."
+msgstr "La clé API ou l'ID de l'assistant est manquant pour le partenaire sélectionné."
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/wizard/vector_store_wizard.py:0
+#, python-format
+msgid "The Vector Store with this ID already exist in Odoo!"
+msgstr "Le Vector Store avec cet ID existe déjà dans Odoo !"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "To create, you need to specify the token and assistant ID."
+msgstr "Pour créer, vous devez spécifier le jeton et l'ID de l'assistant."
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant__token_api
+msgid "Token API"
+msgstr "API de jeton"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.vector_store_view_form
+msgid "Upload Files"
+msgstr "Télécharger des fichiers"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_im_livechat_channel__is_only_hint_available
+msgid "Use only assistant hint"
+msgstr "Utiliser uniquement l'aide-mémoire"
+
+#. module: us_assistant
+#: model:ir.actions.act_window,name:us_assistant.action_open_vector_store_form
+#: model:ir.actions.act_window,name:us_assistant.vector_store_action
+#: model:ir.model,name:us_assistant.model_vector_store
+#: model:ir.model.fields,field_description:us_assistant.field_gpt_assistant__vector_store_id
+msgid "Vector Store"
+msgstr "Magasin de vecteurs"
+
+#. module: us_assistant
+#: model:ir.actions.act_window,name:us_assistant.action_open_vector_store_wizard
+msgid "Vector Store Configuration"
+msgstr "Configuration du magasin de vecteurs"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store_wizard__vector_store_id
+msgid "Vector Store ID"
+msgstr "ID du magasin de vecteurs"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__store_id
+msgid "Vector Store Id"
+msgstr "ID du magasin de vecteurs"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__name
+msgid "Vector Store Name"
+msgstr "Nom du magasin de vecteurs"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_vector_store__is_vector_store_odoo
+msgid "Vector Store Odoo"
+msgstr "Boutique de vecteurs Odoo"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "View and manage all current assistants."
+msgstr "Afficher et gérer tous les assistants actuels."
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.vector_store_view_form
+msgid ""
+"Warning! All files from Vector Store will be deleted and the current list of"
+" files will be added."
+msgstr ""
+"Attention! Tous les fichiers de Vector Store seront supprimés et la liste actuelle des"
+" fichiers sera ajoutée."
+
+#. module: us_assistant
+#: model:ir.model,name:us_assistant.model_vector_store_wizard
+msgid "Wizard for Vector Store Configuration"
+msgstr "Assistant de configuration du magasin de vecteurs"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.gpt_assistant_view_form
+msgid "You can choose a vector store after defining the assistant token"
+msgstr "Vous pouvez choisir un magasin de vecteurs après avoir défini le jeton d'assistant"
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/models/res_partner.py:0
+#, python-format
+msgid "You can delete an assistant contact only after archiving"
+msgstr "Vous ne pouvez supprimer un contact assistant qu'après l'archivage"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.assistant_im_livechat_channel_view_form_inherit
+msgid "You can set the Assistant to communicate with customers in live chat."
+msgstr "Vous pouvez configurer l'assistant pour communiquer avec les clients via le chat en direct."
+
+#. module: us_assistant
+#. odoo-javascript
+#: code:addons/us_assistant/static/src/components/composer/composer.xml:0
+#, python-format
+msgid "cancel"
+msgstr "annuler"
+
+#. module: us_assistant
+#. odoo-javascript
+#: code:addons/us_assistant/static/src/components/composer/composer.xml:0
+#, python-format
+msgid "escape to"
+msgstr ""
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_mail_channel__is_assistant_active
+msgid "gpt.assistant"
+msgstr ""
+
+#. module: us_assistant
+#. odoo-javascript
+#: code:addons/us_assistant/static/src/components/composer/composer.xml:0
+#, python-format
+msgid "save"
+msgstr "sauvegarder"
+
+#. module: us_assistant
+#: model:ir.module.category,description:us_assistant.module_category_us_assistant
+msgid ""
+"\n"
+"                User: read-only access;\n"
+"                Administrator: same as User, but access to secure staff.\n"
+"            "
+msgstr ""
+"\n"
+"                Utilisateur : accès en lecture seule ;\n"
+"                Administrateur : identique à l'utilisateur, mais accès au personnel sécurisé.\n"
+"            "
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "<b>Error Message</b>"
+msgstr "<b>Message d'erreur</b>"
+
+#. module: us_assistant
+#: model:res.groups,name:us_assistant.us_assistant_group_manager
+msgid "Administrator"
+msgstr "Administrateur"
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/models/mail_thread.py:0
+#, python-format
+msgid "Assistant cannot retrieve files"
+msgstr "L'assistant ne peut pas récupérer les fichiers"
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/models/mail_channel.py:0
+#, python-format
+msgid "Assistant is not active (archived)"
+msgstr "L'assistant n'est pas actif (archivé)"
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/models/mail_thread.py:0
+#, python-format
+msgid "Channel have more than 1 assistant"
+msgstr "La chaîne a plus d'un assistant"
+
+#. module: us_assistant
+#: model:ir.model,name:us_assistant.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de configuration"
+
+#. module: us_assistant
+#: model:ir.model.fields,field_description:us_assistant.field_res_config_settings__assistant_error_message
+msgid "Error message"
+msgstr "Message d'erreur"
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/models/res_config_settings.py:0
+#, python-format
+msgid "Please wait, the Assistant is running another request"
+msgstr "Veuillez patienter, l'assistant exécute une autre requête"
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/models/mail_thread.py:0
+#, python-format
+msgid "The channel does not contain assistant"
+msgstr "La chaîne ne contient pas d'assistant"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid ""
+"This error will be displayed to users and visitors(except for the administrator)\n"
+"                                        if there is a problem with the assistant on the OpenAI side"
+msgstr ""
+"Cette erreur sera affichée aux utilisateurs et aux visiteurs (sauf à l'administrateur)\n"
+" s'il y a un problème avec l'assistant côté OpenAI "
+
+#. module: us_assistant
+#: model:res.groups,name:us_assistant.us_assistant_group_user
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/controllers/discuss_channel_assistant.py:0
+#, python-format
+msgid "You cannot enable assistant responses because the 'Use only assistant hint' setting is enabled in the Live Chat Channel"
+msgstr "Vous ne pouvez pas activer les réponses de l'assistant parce que le paramètre «Utiliser uniquement les indices de l'assistant» est activé dans le canal Live Chat"
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/models/discuss_channel.py:0
+#, python-format
+msgid "Disable the assistant in the channel if you want to chat with the visitor"
+msgstr "Désactivez l'assistant dans le canal si vous souhaitez discuter avec le visiteur"
+
+#. module: us_assistant
+#. odoo-python
+#: code:addons/us_assistant/models/mail_thread.py:0
+#, python-format
+msgid "To use hint disable assistant in channel"
+msgstr "Pour utiliser l'indice, désactivez l'assistant dans le canal"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "To create, you need to specify the token and asisstant ID"
+msgstr "Pour la création, vous devez spécifier le jeton et l'identifiant de l'assistant."
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Add new assistant"
+msgstr "Ajouter un nouvel assistant"
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "Here you can view and menage all current assistants"
+msgstr "Ici, vous pouvez voir et faire du menage avec tous les assistants actuels."
+
+#. module: us_assistant
+#: model_terms:ir.ui.view,arch_db:us_assistant.us_assistant_res_config_settings_view
+msgid "This error will be displayed to users and visitors(except for the administrator) if there is a problem with the assistant on the OpenAI side"
+msgstr "Cette erreur sera affichée aux utilisateurs et visiteurs (à l'exception de l'administrateur) s'il y a un problème avec l'assistant du côté de l'OpenAI"

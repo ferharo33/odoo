@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_vector_store_wizard_form" model="ir.ui.view">
+        <field name="name">vector.store.wizard.form</field>
+        <field name="model">vector.store.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="api_key" password="True"/>
+                    <field name="vector_store_id"/>
+                </group>
+                <footer>
+                    <button string="Confirm" type="object" name="action_confirm" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

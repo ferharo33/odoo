@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo><data noupdate="1">
+
+    <record id="chatbot_script_assistant_bot" model="chatbot.script">
+        <field name="title">Assistant Bot</field>
+        <field name="image_1920" type="base64" file="us_assistant/static/description/icon.png"/>
+    </record>
+
+    <record id="chatbot_script_assistant_step_welcome" model="chatbot.script.step">
+         <field name="message">Hello, you can ask a question to our AI assistant, which we trained on company data. You can also leave your email address so that we can contact you.</field>
+        <field name="sequence">1</field>
+        <field name="step_type">question_selection</field>
+        <field name="chatbot_script_id" ref="chatbot_script_assistant_bot"/>
+    </record>
+
+    <record id="chatbot_script_assistant_step_dispatch_answer_question" model="chatbot.script.answer">
+        <field name="name">Ask a question to an AI assistant</field>
+        <field name="sequence">1</field>
+        <field name="script_step_id" ref="chatbot_script_assistant_step_welcome"/>
+    </record>
+
+    <record id="chatbot_script_assistant_step_dispatch_answer_email" model="chatbot.script.answer">
+        <field name="name">Leave an email</field>
+        <field name="sequence">2</field>
+        <field name="script_step_id" ref="chatbot_script_assistant_step_welcome"/>
+    </record>
+
+    <record id="chatbot_script_assistant_step_question_forward_operator" model="chatbot.script.step">
+        <field name="message">Hi 👋, I'm an assistant ready to answer your questions.</field>
+        <field name="sequence">2</field>
+        <field name="step_type">forward_operator</field>
+        <field name="forward_operator_with_assistant" eval="True"/>
+        <field name="chatbot_script_id" ref="chatbot_script_assistant_bot"/>
+        <field name="triggering_answer_ids" eval="[(4, ref('chatbot_script_assistant_step_dispatch_answer_question'))]"/>
+    </record>
+
+    <record id="chatbot_script_assistant_step_no_assistant" model="chatbot.script.step">
+        <field name="message">Oops, it seems the assistant is disabled for this site.</field>
+        <field name="sequence">3</field>
+        <field name="step_type">text</field>
+        <field name="chatbot_script_id" ref="chatbot_script_assistant_bot"/>
+        <field name="triggering_answer_ids" eval="[(4, ref('chatbot_script_assistant_step_dispatch_answer_question'))]"/>
+    </record>
+
+    <record id="chatbot_script_assistant_step_email" model="chatbot.script.step">
+        <field name="message">Write your email</field>
+        <field name="sequence">4</field>
+        <field name="step_type">question_email</field>
+        <field name="chatbot_script_id" ref="chatbot_script_assistant_bot"/>
+        <field name="triggering_answer_ids" eval="[(4, ref('chatbot_script_assistant_step_dispatch_answer_email')),(4, ref('chatbot_script_assistant_step_dispatch_answer_question'))]"/>
+    </record>
+
+    <record id="chatbot_script_assistant_step_get_email" model="chatbot.script.step">
+        <field name="message">Thank you, see you soon!</field>
+        <field name="sequence">5</field>
+        <field name="step_type">text</field>
+        <field name="chatbot_script_id" ref="chatbot_script_assistant_bot"/>
+        <field name="triggering_answer_ids" eval="[(4, ref('chatbot_script_assistant_step_dispatch_answer_email')),(4, ref('chatbot_script_assistant_step_dispatch_answer_question'))]"/>
+    </record>
+
+</data></odoo>

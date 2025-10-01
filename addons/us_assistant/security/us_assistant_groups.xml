@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="module_category_us_assistant" model="ir.module.category">
+            <field name="name">Assistant</field>
+            <field name="description">
+                User: read-only access;
+                Administrator: same as User, but access to secure staff.
+            </field>
+        </record>
+        <record id="us_assistant_group_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_category_us_assistant" />
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+        <record id="us_assistant_group_manager" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="module_category_us_assistant" />
+            <field name="implied_ids" eval="[(4, ref('us_assistant.us_assistant_group_user'))]" />
+        </record>
+        <record id="base.group_system" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('us_assistant.us_assistant_group_manager'))]" />
+        </record>
+    </data>
+</odoo>

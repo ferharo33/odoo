@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="us_assistant.AssistantPanel">
+        <t t-set="title">Assistants</t>
+        <ActionPanel title="title">
+            <div t-if="assistantMembers.length > 0" class="form-check form-switch">
+                <label class="form-check-label">
+                    <input t-on-change="onChangeUseAssistant" id="checkbox" class="form-check-input" type="checkbox" t-att-checked="props.thread.assistant_toggle_status ? 'checked': ''"/>
+                    <t t-if="!props.thread.assistant_toggle_status">Assistant responses are disabled</t>
+                    <t t-else="">Assistant responses are enabled</t>
+                </label>
+                <h6 class="mt-2 text-700">
+                    Assistant
+                </h6>
+            </div>
+            <div class="flex-grow-1" t-att-class="{
+                'd-flex justify-content-center align-items-center': assistantMembers.length === 0,
+            }">
+                <p t-if="assistantMembers.length === 0" class="text-center fst-italic text-500">
+                    <t t-if="props.thread.type === 'channel'">This channel doesn't have any assistant members.</t>
+                    <t t-else="">This conversation doesn't have any assistant members.</t>
+                </p>
+                <t t-else="" t-foreach="assistantMembers"  t-as="member" t-key="member.id" t-call="discuss.channel_assistant_member">
+                </t>
+            </div>
+        </ActionPanel>
+    </t>
+    <t t-name="discuss.channel_assistant_member">
+        <div class="o-discuss-ChannelMember d-flex align-items-center p-2 bg-view" t-att-class="{ 'cursor-pointer': canOpenChatWith(member) }" t-on-click.stop="() => this.openChatAvatar(member)">
+            <div class="bg-inherit o-discuss-ChannelMember-avatar position-relative d-flex ms-4 flex-shrink-0">
+                <img class="w-100 h-100 rounded o_object_fit_cover"
+                     t-att-src="threadService.avatarUrl(member.persona, props.thread)"/>
+            </div>
+            <span t-ref="displayName" class="ms-2 text-truncate" t-esc="channelMemberService.getName(member)"/>
+
+        </div>
+    </t>
+</templates>

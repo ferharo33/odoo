@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_gpt_assistant_user,gpt.assistant.user,model_gpt_assistant,us_assistant_group_user,1,0,0,0
+access_gpt_assistant_manager,gpt.assistant.manager,model_gpt_assistant,us_assistant_group_manager,1,1,1,1
+access_vector_store_user,vector.store.user,model_vector_store,us_assistant_group_user,1,0,0,0
+access_vector_store_manager,vector.store.manager,model_vector_store,us_assistant_group_manager,1,1,1,1
+access_vector_store_wizard_user,vector.store.wizard.user,model_vector_store_wizard,us_assistant_group_user,1,0,0,0
+access_vector_store_wizard_manager,vector.store.wizard.manager,model_vector_store_wizard,us_assistant_group_manager,1,1,1,1

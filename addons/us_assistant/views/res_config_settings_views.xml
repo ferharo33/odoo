@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.actions.act_window" id="action_open_gpt_assistant_form">
+        <field name="name">New Assistant</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">gpt.assistant</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="gpt_assistant_view_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_open_vector_store_form" model="ir.actions.act_window">
+        <field name="name">Vector Store</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vector.store</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="vector_store_view_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_open_vector_store_wizard" model="ir.actions.act_window">
+        <field name="name">Vector Store Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vector.store.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="us_assistant_res_config_settings_view" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.assistant</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="3"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Assistant" string="Assistant" name="us_assistant" groups="base.group_system">
+                    <block title="Assistants">
+                        <setting string="Add new assistant" documentation="#" help="To create, you need to specify the token and asisstant ID">
+                            <button name="%(action_open_gpt_assistant_form)d" icon="fa-arrow-right" type="action" string="Add Assistant" class="btn-link"/>
+                        </setting>
+                        <setting string="Manage assistants" documentation="#" help="Here you can view and menage all current assistants">
+                            <button name="%(gpt_assistant_action)d" icon="fa-arrow-right" type="action" string="Manage" class="btn-link"/>
+                        </setting>
+                    </block>
+                    <block>
+                        <setting string="Existing Vector Stores" documentation="#" help="Add your Vector Stories that already exist in the Dashboard.">
+                            <button name="%(action_open_vector_store_wizard)d" icon="fa-arrow-right" type="action" string="Add Stores from Dashboard" class="btn-link"/>
+                        </setting>
+                         <setting string="Manage Vector Stores" documentation="#" help="Create, view and manage Vector Stores.">
+                            <button name="%(vector_store_action)d" icon="fa-arrow-right" type="action" string="Manage Stores" class="btn-link"/>
+                        </setting>
+                    </block>
+                    <block>
+                        <setting class="col-lg-12" string="Error Message" help="This error will be displayed to users and visitors(except for the administrator) if there is a problem with the assistant on the OpenAI side">
+                            <field name="assistant_error_message"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+
