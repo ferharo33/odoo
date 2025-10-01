@@ -3,17 +3,17 @@
     <record id="vector_store_action" model="ir.actions.act_window">
         <field name="name">Vector Store</field>
         <field name="res_model">vector.store</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <record id="vector_store_tree" model="ir.ui.view">
         <field name="name">vector.store.tree</field>
         <field name="model">vector.store</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="store_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
