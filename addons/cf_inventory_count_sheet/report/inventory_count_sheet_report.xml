@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <report
-        id="action_report_inventory_count_sheet"
-        model="stock.inventory"
-        string="Hoja de recuento de inventario"
-        report_type="qweb-pdf"
-        name="cf_inventory_count_sheet.report_inventory_count_sheet"
-        paperformat="paperformat_euro"
-        print_report_name="('Hoja de recuento - %s' % (object.name or ''))"
-    />
+    <record id="action_report_inventory_count_sheet" model="ir.actions.report">
+        <field name="name">Hoja de recuento de inventario</field>
+        <field name="model">stock.inventory</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cf_inventory_count_sheet.report_inventory_count_sheet</field>
+        <field name="print_report_name">'Hoja de recuento - %s' % (object.name or '')</field>
+        <field name="paperformat_id" ref="paperformat_euro"/>
+        <field name="binding_model_id" ref="stock.model_stock_inventory"/>
+        <field name="binding_type">report</field>
+    </record>
 </odoo>
