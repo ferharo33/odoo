@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_inventory_group_form" model="ir.ui.view">
+        <field name="name">stock.inventory.form.view.cf.count.sheet</field>
+        <field name="model">stock.inventory</field>
+        <field name="inherit_id" ref="stock_inventory.view_inventory_group_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/header" position="inside">
+                <button
+                    type="object"
+                    name="action_print_count_sheet"
+                    string="Imprimir hoja de recuento"
+                    class="btn-secondary"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
