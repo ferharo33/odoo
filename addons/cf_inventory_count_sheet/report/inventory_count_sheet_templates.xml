@@ -14,8 +14,9 @@
                                 </div>
                                 <div class="col-4 text-end">
                                     <div>
+                                        <t t-set="count_date" t-value="getattr(o, 'accounting_date', False) or o.date or fields.Date.context_today(o)"/>
                                         <strong>Fecha contable:</strong>
-                                        <span t-esc="o.date and format_datetime(o.date) or ''"/>
+                                        <span t-esc="format_datetime(count_date)"/>
                                     </div>
                                 </div>
                             </div>
